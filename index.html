@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>時計</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="clock" style="font-family: NyauNumber;"></div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+
+      const hours = now.getHours();
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+
+      const displayHours = hours.toString().padStart(2, "0");
+      const displayMinutes = minutes.toString().padStart(2, "0");
+      const displaySeconds = seconds.toString().padStart(2, "0");
+
+
+      const clockElement = document.getElementById("clock");
+
+
+      clockElement.textContent = `${displayHours}:${displayMinutes}:${displaySeconds}`;
+
+
+      setTimeout(updateClock, 1000);
+    }
+
+
+    updateClock();
+  </script>
+</body>
+</html>
